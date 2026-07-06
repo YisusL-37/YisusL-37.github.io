@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+          <!--responsi-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+         <!-- Estilos goblal -->
+        <link href="../CSS/styles.css" rel="stylesheet" type="text/css"/>
+        <title>Carrito - Kiosco UTP</title>
+
+        <link href="../CSS/stylesCarrito.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <!-- Encabezado -->
+        <header class="barra-superior">
+            <h1 class="titulo">Kiosco UTP - Carrito</h1>
+            <nav class="menu-navegacion">
+                <a href="menu.html" class="btn-volver">← Volver al menú</a>
+            </nav>
+        </header>
+
+        <main class="contenedor-carrito">
+            <!-- Carrito -->
+            <section class="carrito-section">
+                <h2>Tu carrito</h2>
+                <div class="tabla-wrapper">
+                    <table class="tabla-carrito">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="carrito-body">
+                            <!-- JS inserta las filas aquí -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="totales">
+                    <p>
+                        <span>Base imponible:</span>
+                        <strong id="base-imponible">S/ 0.00</strong>
+                    </p>
+                    <p><span>IGV (18%):</span> <strong id="igv">S/ 0.00</strong></p>
+                    <p class="total">
+                        <span>Total:</span> <strong id="total">S/ 0.00</strong>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Pago -->
+            <section class="pago-section">
+                <h2>Pago con tarjeta</h2>
+                <form id="form-pago" class="form-pago">
+                    <div class="campo">
+                        <label for="codigo-estudiante">Código de estudiante</label>
+                        <input type="text" id="codigo-estudiante" required />
+                    </div>
+
+                    <div class="campo">
+                        <label for="nombre-tarjeta">Nombre en la tarjeta</label>
+                        <input type="text" id="nombre-tarjeta" required />
+                    </div>
+
+                    <div class="campo">
+                        <label for="numero-tarjeta">Número de tarjeta</label>
+                        <input
+                            type="text"
+                            id="numero-tarjeta"
+                            maxlength="19"
+                            placeholder="0000 0000 0000 0000"
+                            required
+                            />
+                    </div>
+
+                    <div class="campo-doble">
+                        <div>
+                            <label for="vencimiento">Vencimiento (MM/AA)</label>
+                            <input
+                                type="text"
+                                id="vencimiento"
+                                placeholder="08/28"
+                                required
+                                />
+                        </div>
+                        <div>
+                            <label for="cvv">CVV</label>
+                            <input type="password" id="cvv" maxlength="4" required />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-pagar">Finalizar compra</button>
+                </form>
+            </section>
+
+            <!-- Ticket -->
+            <section id="ticket" class="ticket oculto">
+                <div id="ticket-contenido"></div>
+                <button id="btn-imprimir" class="btn-imprimir">Imprimir ticket</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Kiosco UTP – Proyecto UTP</p>
+        </footer>
+
+        <!-- Misma lógica JS del proyecto -->
+        <script src="../js/JSpruebas.js" type="text/javascript"></script>
+    </body>
+</html>

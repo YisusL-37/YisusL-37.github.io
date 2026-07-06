@@ -1,0 +1,742 @@
+/* ============================
+  ESTRUCTURA GENERAL
+============================ */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding-top: 80px; /* Espacio para la barra superior fija */
+  background: linear-gradient(to bottom, #fff5f5, #f4f4f4);
+  overflow-x: hidden; /* Evita el scroll horizontal indeseado */
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Asegura que no haya scroll horizontal en el root */
+}
+
+/* ============================
+  COLORES Y SOMBRAS COMUNES
+============================ */
+/* Color Rojo Institucional Principal */
+:root {
+  --color-principal: #C8102E;
+  --color-oscuro: #A30D25;
+  --color-resalte: #ff4d4d;
+  --color-fondo-claro: #f4f4f4;
+}
+
+/* ============================
+  BARRA SUPERIOR INSTITUCIONAL
+============================ */
+.barra-superior {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 97%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 1em;
+  padding: 1em 2em;
+  background: linear-gradient(90deg, var(--color-oscuro), var(--color-principal));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+/* ============================
+  TÍTULO INSTITUCIONAL
+============================ */
+.titulo {
+  font-size: 2em;
+  color: white;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* ============================
+  MENÚ HORIZONTAL
+============================ */
+.menu-navegacion ul {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-navegacion a {
+  text-decoration: none;
+  color: var(--color-principal, #C8102E);
+  background: white;
+  
+  /* Se deja el tamaño original o el que se quiera para ESCRITORIO */
+
+  font-weight: bold;
+  border: 2px solid var(#ffe5e5);
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.menu-navegacion a:hover {
+  background-color: #ffe5e5;
+  transform: translateY(-2px);
+}
+
+/* ============================
+  BUSCADOR Y BOTÓN
+============================ */
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-shrink: 0;
+}
+
+/* Campo de búsqueda */
+#buscar {
+  padding: 0.6em 1em;
+  font-size: 1em;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 160px;
+  transition: border-color 0.3s ease;
+}
+
+#buscar:focus {
+  outline: none;
+  border-color: var(--color-principal);
+}
+
+/* Botón "Ver todos" */
+#verTodo {
+  background: #000000;
+  color: var(--color-fondo-claro);
+  font-weight: bold;
+  border: 2px solid var(--color-principal);
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#verTodo:hover {
+  background-color: #ffe5e5;
+  color: var(--color-principal);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(200, 16, 46, 0.3);
+}
+
+/* ============================
+  BOTONES (General)
+  Se consolidan 'button' y '.btn-agregar'
+============================ */
+/* Estilo base para ambos, si tienen propiedades en común */
+button,
+.btn-agregar {
+  display: inline-block;
+  background: linear-gradient(135deg, #b30000, var(--color-resalte));
+  color: white;
+  text-decoration: none; /* Para .btn-agregar (que es un enlace/div) */
+  border: none;
+  padding: 0.6em 1.2em;
+  margin-top: 0.5em;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1em;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover,
+.btn-agregar:hover {
+  background: #990000; /* Color simple para el hover, aunque el degradado sea más complejo en el original */
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 77, 77, 0.4);
+}
+
+/* ============================
+  MENSAJE
+============================ */
+.mensaje-objetivo {
+  font-size: 1.7em;
+  font-weight: 600;
+  color: var(--color-principal);
+  text-align: center;
+  margin: 2em auto;
+  max-width: 800px;
+  letter-spacing: 0.5px;
+}
+
+/* ============================
+  CONTENIDO PRINCIPAL
+============================ */
+.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2em;
+  gap: 1em;
+}
+
+/* ============================
+  TARJETAS DE PRODUCTO
+============================ */
+.producto {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(179, 0, 0, 0.15);
+  padding: 1em;
+  width: 260px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(179, 0, 0, 0.25);
+}
+
+.producto img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #eee;
+}
+
+.producto h3 {
+  display: inline-block;
+  background: #fff0f0;
+  padding: 0.3em 0.8em;
+  border-radius: 20px;
+  font-size: 1.4em;
+  color: #000000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease; /* Transición movida aquí */
+}
+
+.producto:hover h3 {
+  transform: scale(1.05);
+}
+
+.producto p {
+  margin: 0.2em 0;
+  font-size: 1em;
+}
+
+.precio {
+  font-weight: bold;
+  color: #b30000;
+  font-size: 1.2em;
+}
+
+/* ============================
+  PIE DE PÁGINA
+============================ */
+footer {
+  background: linear-gradient(90deg, var(--color-oscuro), var(--color-principal));
+  color: white;
+  text-align: center;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+/* ============================
+  TÍTULO FIJO DE SECCIÓN ACTIVA
+============================ */
+.titulo-seccion {
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  font-size: 2.2em;
+  font-weight: 700;
+  color: #b30000;
+  background: white;
+  padding: 0.4em 1em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+}
+
+.titulo-seccion:hover {
+  transform: scale(1.05);
+}
+
+/* ============================
+  ENCABEZADOS DE SECCIÓN (h2)
+============================ */
+section h2 {
+  font-size: 2.8em;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(to right, #1c1c1c, #3a3a3a);
+  padding: 2.0em 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 4em 0 2em;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  animation: fadeInUp 0.6s ease forwards;
+  scroll-margin-top: 100px;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--color-resalte);
+  margin: 0.5em auto 0;
+  border-radius: 2px;
+}
+
+/* ============================
+  ANIMACIONES
+============================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==== CARRUSEL AUTOMÁTICO + MANUAL (REACTIVABLE) ==== */
+.carrusel {
+  width: 100%;
+  max-width: 2000px;
+  height: 400px;
+  position: relative;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Contenedor de slides */
+.slides {
+  display: flex;
+  width: 400%;
+  height: 100%;
+  transition: margin-left 0.5s ease-in-out;
+}
+
+/* Ocultar los radios */
+.slides input {
+  display: none;
+}
+
+/* Cada slide */
+.slide {
+  width: 25%;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 15px;
+  background-color: #ffffff;
+}
+
+/* === Navegación manual === */
+.navigation-manual {
+  position: absolute;
+  width: 100%;
+  bottom: -1px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.manual-btn {
+  border: 2px solid rgb(0, 0, 0);
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.manual-btn:hover {
+  background: rgb(187, 187, 187);
+}
+
+/* === Animación automática === */
+@keyframes autoplay {
+  0%, 20% { margin-left: 0; }
+  25%, 45% { margin-left: -25%; }
+  50%, 70% { margin-left: -50%; }
+  75%, 95% { margin-left: -75%; }
+  100% { margin-left: 0; }
+}
+
+/* autoplay base */
+.slides .first {
+  animation: autoplay 20s infinite;
+  animation-play-state: running;
+}
+
+/* pausa al pasar el mouse */
+.carrusel:hover .first {
+  animation-play-state: paused;
+}
+
+/* === Pausar animación al hacer clic manualmente y reiniciar === */
+/* Mantiene la posición manual y reactiva el autoplay 20s después */
+#radio1:checked ~ .first { animation: autoplay 10s infinite 10s; margin-left: 0; }
+#radio2:checked ~ .first { animation: autoplay 10s infinite 10s; margin-left: -25%; }
+#radio3:checked ~ .first { animation: autoplay 10s infinite 10s; margin-left: -50%; }
+#radio4:checked ~ .first { animation: autoplay 10s infinite 10s; margin-left: -75%; }
+#radio5:checked ~ .first { animation: autoplay 10s infinite 10s;margin-left: -100%;}
+
+
+.carrusel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  animation: autoplay 10s infinite;
+}
+
+/* ==== Flechas de navegación ==== */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  font-size: 2rem;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.arrow-prev {
+  left: 15px;
+}
+
+.arrow-next {
+  right: 15px;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* ============================
+  MEDIA QUERIES (RESPONSIVE)
+============================ */
+
+/* Escritorio Pequeño/Tablets (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .menu-navegacion ul {
+    justify-content: center;
+  }
+
+  .buscador {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1em;
+  }
+
+  #buscar {
+    width: 60%;
+    max-width: 300px;
+  }
+}
+
+/* Móvil (max-width: 680px) - Layout Grid */
+@media (max-width: 680px) {
+  body { padding-top: 64px; }
+
+  .barra-superior {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand actions"
+      "chips chips";
+    align-items: center;
+    gap: .8rem;
+    padding: .6rem .8rem;
+    width: 95%;
+    max-width: none;
+    flex-wrap: wrap; 
+  }
+
+  .titulo {
+    grid-area: brand;
+    font-size: 1.3rem;
+    white-space: nowrap;
+  }
+
+  .buscador {
+    grid-area: actions;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: .5rem;
+    min-width: 0;
+    margin-top: 0;
+    justify-content: flex-end; 
+  }
+
+  /* Campo de búsqueda en móvil */
+  #buscar {
+    width: clamp(130px, 40vw, 190px);
+    padding: .45em .7em;
+    font-size: .92rem;
+    border-radius: 6px;
+  }
+
+  /* Botón "Ver todos" en móvil */
+  #verTodo {
+    padding: .45em .6em;
+    font-size: .9rem;
+    white-space: nowrap;
+  }
+
+  /* CHIPS de Navegación */
+  .menu-navegacion { grid-area: chips; width: 100%; }
+
+  .menu-navegacion ul {
+    /* Sustituye flex del base por grid de 3 columnas */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: .55rem;
+    row-gap: .55rem;
+    margin: 0;
+    padding: 0 .2rem;
+    overflow: visible;
+  }
+
+  .menu-navegacion li { list-style: none; }
+
+  /* Overrides fuertes para compactar los enlaces */
+  .menu-navegacion a {
+    display: block;
+    width: 100%;
+    min-width: 0 !important; /* Anula min-width:120px */
+    padding: .32em .55em !important; /* Menos padding */
+    font-size: .9rem !important;
+    border-radius: 6px !important; /* Esquinas más chicas */
+    text-align: center;
+    white-space: nowrap;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+  }
+}
+
+/* Móvil Extra Pequeño (max-width: 400px) */
+@media (max-width: 400px) {
+  /* Título */
+  .titulo { font-size: 1.15rem; }
+
+  /* Chips */
+  .menu-navegacion a {
+    font-size: .86rem !important;
+    padding: .28em .5em !important;
+  }
+
+  /* Buscador */
+  #buscar {
+    width: clamp(120px, 38vw, 175px);
+    max-width: 190px;
+  }
+  #verTodo {
+    font-size: .85rem;
+    padding: .45em .6em;
+  }
+}
+/* ===== MOVIL (≤680px) – Separación y Tamaño Mejorados ===== */
+@media (max-width: 680px) {
+    /* ... (Estilos de la barra superior y buscador se mantienen igual) ... */
+
+    /* CHIPS de Navegación */
+    .menu-navegacion { grid-area: chips; width: 100%; }
+
+    .menu-navegacion ul.botonera {
+        display: grid !important; 
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        
+        /* 👇 SOLUCIÓN CLAVE 1: AUMENTAR ESPACIO ENTRE BOTONES 👇 */
+        column-gap: 1rem; /* Aumentado de .55rem */
+        row-gap: 1rem;    /* Aumentado de .55rem */
+        
+        margin: 0;
+        padding: 0 1rem;
+        overflow: visible;
+    }
+
+    /* Selector clave: Overrides para compactar los enlaces */
+    .menu-navegacion a {
+        display: block;
+        width: 100%;
+        min-width: 0 !important; 
+        
+        /* 👇 SOLUCIÓN CLAVE 2: REDUCIR TAMAÑO DEL BOTÓN 👇 */
+        padding: .2em .4em !important; /* Relleno muy reducido para encoger el botón */
+        font-size: .8rem !important;    /* Fuente más pequeña */
+        
+        border-radius: 6px !important;
+        text-align: center;
+        white-space: nowrap;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+    }
+}
+
+/*Estilos para el mini-carrito*/
+.mini-carrito {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 300px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 1em;
+  z-index: 2000;
+}
+
+.mini-carrito h3 {
+  margin-top: 0;
+  color: var(--color-principal);
+}
+
+.mini-carrito ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1em;
+}
+
+.mini-carrito li {
+  font-size: 0.9rem;
+  margin-bottom: 0.5em;
+}
+
+.mini-carrito.oculto {
+  display: none;
+}
+
+.mini-carrito button {
+  margin-top: 0.5em;
+  width: 100%;
+  padding: 0.6em;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btn-proceder {
+  background: var(--color-principal);
+  color: #fff;
+}
+
+#btn-cerrar-mini {
+  background: #ccc;
+}
+/*estilos menu movil*/
+.hamburguesa {
+  font-size: 1.6rem;
+  background: var(--color-principal);
+  color: white;
+  border: none;
+  padding: 0.4em 0.6em;
+  border-radius: 8px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  padding: 2em 1em;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.menu-lateral.activo {
+  transform: translateX(0);
+}
+
+.cerrar-menu {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #eee;
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.overlay-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.overlay-menu.activo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mostrar hamburguesa solo en móvil */
+@media (max-width: 680px) {
+  .hamburguesa {
+    display: block;
+  }
+
+  /* Opcional: ocultar chips en móvil */
+  .menu-navegacion {
+    display: none;
+  }
+  
+}
+
+

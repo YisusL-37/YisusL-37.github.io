@@ -1,0 +1,392 @@
+:root {
+  --color-principal: #C8102E;
+  --color-oscuro: #A30D25;
+  --color-resalte: #ff4d4d;
+  --color-fondo-claro: #f4f4f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+/*cambio kenny1*/
+.col-imagen img {
+  display: block;
+  margin: auto;
+  border: 1px solid #ddd;
+  padding: 2px;
+  background: #fff;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #fff5f5, #f4f4f4);
+}
+
+/* ==========================
+   HEADER
+========================== */
+.barra-superior {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background: linear-gradient(90deg, var(--color-oscuro), var(--color-principal));
+  color: #fff;
+}
+
+.titulo {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.btn-volver {
+  background: #fff;
+  color: var(--color-principal);
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.btn-volver:hover {
+  background: #ffe5e5;
+}
+
+/* ==========================
+   LAYOUT PRINCIPAL
+========================== */
+.contenedor-carrito {
+  max-width: 1100px;
+  margin: 2em auto;
+  padding: 0 1.5em 3em;
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  gap: 2em;
+}
+
+/* Tarjetas principales */
+.carrito-section,
+.pago-section,
+.ticket {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(179, 0, 0, 0.15);
+  padding: 1.5em;
+}
+
+.carrito-section h2,
+.pago-section h2 {
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: var(--color-oscuro);
+}
+
+/* ==========================
+   TABLA DEL CARRITO
+========================== */
+.tabla-wrapper {
+  width: 100%;
+  overflow-x: auto;   /* Para móvil: scroll horizontal si hace falta */
+}
+
+.tabla-carrito {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 600px;   /* Para que las columnas no se aplasten de más */
+}
+
+.tabla-carrito thead {
+  background: #fff0f0;
+}
+
+.tabla-carrito th,
+.tabla-carrito td {
+  padding: 0.6em;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.col-cantidad {
+  white-space: nowrap;
+}
+
+.cantidad {
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+}
+
+/* Botones de cantidad / eliminar */
+.btn-cantidad {
+  background: #eee;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-cantidad:hover {
+  background: #ddd;
+}
+
+.btn-eliminar {
+  background: #000;
+  color: #fff;
+  padding: 0.3em 0.7em;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-eliminar:hover {
+  background: #333;
+}
+
+/* Mensaje carrito vacío */
+.carrito-vacio {
+  text-align: center;
+  padding: 1em;
+}
+
+/* Totales */
+.totales {
+  margin-top: 1em;
+  text-align: right;
+}
+
+.totales p {
+  margin: 0.2em 0;
+}
+
+.totales .total {
+  font-size: 1.1rem;
+}
+
+/* ==========================
+   FORMULARIO DE PAGO
+========================== */
+.form-pago {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.campo-doble {
+  display: flex;
+  gap: 0.8em;
+}
+
+.campo-doble > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 0.5em 0.7em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+/* Botones principales */
+.btn-pagar,
+.btn-imprimir {
+  margin-top: 0.8em;
+  background: linear-gradient(135deg, #b30000, var(--color-resalte));
+  color: #fff;
+  padding: 0.7em 1.2em;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn-pagar:hover,
+.btn-imprimir:hover {
+  background: #990000;
+}
+
+/* ==========================
+   TICKET
+========================== */
+.ticket {
+  grid-column: 1 / -1;   /* ocupa todo el ancho bajo carrito y pago */
+  margin-top: 1em;
+}
+
+.ticket.oculto {
+  display: none;
+}
+
+.ticket-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.ticket-tabla th,
+.ticket-tabla td {
+  padding: 0.3em;
+  border-bottom: 1px solid #eee;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 0.8em 0.5em;
+  background: #000;
+  color: #fff;
+  font-size: 0.8rem;
+  margin-top: 0.5em;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+/* Hasta 900px: una sola columna */
+@media (max-width: 900px) {
+  .contenedor-carrito {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 1.5em auto 2em;
+    padding: 0 1em 2em;
+    gap: 1.2em;
+  }
+
+  .ticket {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Hasta 700px: optimizar todo para celular */
+@media (max-width: 700px) {
+  /* HEADER: mantener título a la izquierda y botón a la derecha */
+  .barra-superior {
+    flex-direction: row;          /* siempre en fila */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;              /* si no entra, el botón baja pero alineado */
+    gap: 0.4em;
+    padding: 0.6em 0.8em;
+  }
+
+  .titulo {
+    font-size: 1.15rem;
+  }
+
+  .btn-volver {
+    font-size: 0.8rem;
+    padding: 0.3em 0.8em;
+  }
+
+  .carrito-section,
+  .pago-section,
+  .ticket {
+    padding: 1.1em;
+    border-radius: 10px;
+  }
+
+  /* Tabla: scroll horizontal suave en móvil */
+  .tabla-carrito {
+    min-width: 520px;
+    font-size: 0.85rem;
+  }
+
+  .tabla-carrito th,
+  .tabla-carrito td {
+    padding: 0.4em;
+  }
+
+  .btn-cantidad {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+
+  .btn-eliminar {
+    padding: 0.25em 0.6em;
+    font-size: 0.78rem;
+  }
+
+  .totales {
+    font-size: 0.9rem;
+  }
+
+  /* Formulario de pago */
+  input[type="text"],
+  input[type="password"] {
+    font-size: 0.9rem;
+    padding: 0.45em 0.6em;
+  }
+
+  .campo-doble {
+    flex-direction: row;
+    gap: 0.6em;
+  }
+
+  .btn-pagar,
+  .btn-imprimir {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Ticket en móvil */
+  .ticket-tabla {
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra pequeño (≤400px) */
+@media (max-width: 400px) {
+  .barra-superior {
+    padding: 0.5em 0.7em;
+  }
+
+  .titulo {
+    font-size: 1.1rem;
+  }
+
+  .contenedor-carrito {
+    padding: 0 0.6em 1.5em;
+  }
+
+  .tabla-carrito {
+    min-width: 480px;
+  }
+
+  .carrito-section h2,
+  .pago-section h2 {
+    font-size: 1rem;
+  }
+}

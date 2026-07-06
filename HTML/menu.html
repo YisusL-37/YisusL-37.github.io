@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <!--responsi-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Kiosco UTP</title>
+        <!-- Estilos principales -->
+        <link href="../CSS/stylesMenu.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    </head>
+
+    <body>
+
+        <!-- Encabezado y navegación -->
+        <header class="barra-superior">
+            <button id="btn-menu" class="hamburguesa" aria-label="Abrir menú">☰</button>
+            <h1 class="titulo">Kiosco UTP</h1>
+
+            <nav class="menu-navegacion">
+                <ul class="botonera">
+                    <li><a href="#especiales">Especiales</a></li>
+                    <li><a href="#desayunos">Desayunos</a></li>
+                    <li><a href="#sandwiches">Sandwiches</a></li>
+                    <li><a href="#bebidas">Bebidas</a></li>
+                    <li><a href="#postres">Postres</a></li>
+                    <li><a href="#snacks">Snacks</a></li>
+                </ul>
+            </nav>
+
+            <div class="buscador">
+                <input type="text" id="buscar" placeholder="Buscar producto..." />
+                <button id="verTodo">Ver todos</button>
+            </div>
+
+        </header>
+
+        <!-- Mini-carrito -->
+        <div id="mini-carrito" class="mini-carrito oculto">
+            <h3>Productos seleccionados</h3>
+            <ul id="mini-carrito-lista"></ul>
+            <p><strong>Total:</strong> <span id="mini-carrito-total">S/ 0.00</span></p>
+            <button id="btn-proceder">Proceder a compra</button>
+            <button id="btn-cerrar-mini">Cerrar</button>
+        </div>
+
+        <!-- Carrusel Banners -->
+        <section class="carrusel" id="carrusel-banners">
+            <div class="slides">
+                <!-- Radios para control manual -->
+                <input type="radio" name="radio-btn" id="radio1" checked />
+                <input type="radio" name="radio-btn" id="radio2" />
+                <input type="radio" name="radio-btn" id="radio3" />
+                <input type="radio" name="radio-btn" id="radio4" />
+                <input type="radio" name="radio-btn" id="radio5" />
+
+                <!-- Imágenes -->
+                <div class="slide first">
+                    <img src="../img/baners/baner5.jpg" alt="Banner 1" />
+                </div>
+                <div class="slide">
+                    <img src="../img/baners/baner2.jpg" alt="Banner 2" />
+                </div>
+                <div class="slide">
+                    <img src="../img/baners/baner3.jpg" alt="Banner 3" />
+                </div>
+                <div class="slide">
+                    <img src="../img/baners/baner4.jpg" alt="Banner 4" />
+                </div>
+                <div class="slide">
+                    <img src="../img/baners/baner1.jpg" alt="Banner 2" />
+                </div>
+
+                <!-- Navegación automática -->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                    <div class="auto-btn5"></div>
+                </div>
+            </div>
+
+            <!-- Navegación manual -->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+                <label for="radio5" class="manual-btn"></label>
+            </div>
+
+            <!-- Flechas de navegación -->
+            <button class="arrow arrow-prev" aria-label="Anterior">&#10094;</button>
+            <button class="arrow arrow-next" aria-label="Siguiente">&#10095;</button>
+        </section>
+
+        <p class="mensaje-objetivo">
+            Evita aglomeraciones y tiempos de espera. Haz tu pedido por la web y
+            recoge sin complicaciones. ¡Tu comodidad y seguridad son nuestra
+            prioridad!
+        </p>
+
+        <!-- contenido -->  
+        <main>
+            <!-- ESPECIALES -->
+            <section id="especiales">
+                <h2>Especiales</h2>
+                <div class="menu-grid">
+                    <div class="producto">
+                        <img src="../img/productos/hamburguesa_jugo.jpg" alt="" />
+                        <h3>Combo UTP</h3>
+                        <p>Hamburguesa + jugo</p>
+                        <p class="precio">S/ 15.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/ejecutivo.jpg" alt="" />
+                        <h3>Almuerzo Ejecutivo</h3>
+                        <p>Arroz + pollo + ensalada</p>
+                        <p class="precio">S/ 12.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/hamburguesa_vegetal.jpg" alt="" />
+                        <h3>Combo Vegetariano</h3>
+                        <p>Hamburguesa vegetal + jugo</p>
+                        <p class="precio">S/ 14.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/combo_doble.jpg" alt="" />
+                        <h3>Combo Doble</h3>
+                        <p>2 hamburguesas + gaseosa</p>
+                        <p class="precio">S/ 18.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/light.jpg" alt="" />
+                        <h3>Combo Light</h3>
+                        <p>Ensalada + agua</p>
+                        <p class="precio">S/ 10.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/tacos_jugo.jpg" alt="" />
+                        <h3>Combo Mexicano</h3>
+                        <p>Tacos + limonada</p>
+                        <p class="precio">S/ 13.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/chaufa_te.jpg" alt="" />
+                        <h3>Combo Asiático</h3>
+                        <p>Arroz chaufa + té helado</p>
+                        <p class="precio">S/ 14.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/lomo_chicha.jpg" alt="" />
+                        <h3>Combo Criollo</h3>
+                        <p>Lomo saltado + chicha</p>
+                        <p class="precio">S/ 16.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/pollo_brasa.jpg" alt="" />
+                        <h3>Combo Pollo</h3>
+                        <p>1/4 pollo + papas + gaseosa</p>
+                        <p class="precio">S/ 17.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/pizza.jpg" alt="" />
+                        <h3>Combo Familiar</h3>
+                        <p>Pizza + 2 bebidas</p>
+                        <p class="precio">S/ 20.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DESAYUNOS -->
+            <section id="desayunos">
+                <h2>Desayunos</h2>
+                <div class="menu-grid">
+                    <div class="producto">
+                        <img src="../img/productos/pan_huevo.jpg" alt="" />
+                        <h3>Desayuno clásico</h3>
+                        <p>Huevo + pan</p>
+                        <p class="precio">S/ 6.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/pan_palta.jpg" alt="" />
+                        <h3>Pan con palta</h3>
+                        <p>Pan artesanal + palta</p>
+                        <p class="precio">S/ 5.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/cafe.jpg" alt="" />
+                        <h3>Café + tostadas</h3>
+                        <p>Café negro + pan tostado</p>
+                        <p class="precio">S/ 6.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/yogurt.jpg" alt="" />
+                        <h3>Yogurt con frutas</h3>
+                        <p>Natural + mix de frutas</p>
+                        <p class="precio">S/ 7.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/omellet.jpg" alt="" />
+                        <h3>Omelette</h3>
+                        <p>Huevos + queso + jamón</p>
+                        <p class="precio">S/ 8.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/avena.jpg" alt="" />
+                        <h3>Avena con leche</h3>
+                        <p>Caliente y nutritiva</p>
+                        <p class="precio">S/ 4.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/pan_queso.jpg" alt="" />
+                        <h3>Pan con queso</h3>
+                        <p>Pan francés + queso fresco</p>
+                        <p class="precio">S/ 5.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/cafe_galletas.jpg" alt="" />
+                        <h3>Té + galletas</h3>
+                        <p>Té de hierbas + galletas</p>
+                        <p class="precio">S/ 4.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/naranja.jpg" alt="" />
+                        <h3>Jugo de naranja</h3>
+                        <p>Natural recién exprimido</p>
+                        <p class="precio">S/ 3.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/ensalada.jpg" alt="" />
+                        <h3>Ensalada de frutas</h3>
+                        <p>Fresas, plátano, papaya</p>
+                        <p class="precio">S/ 6.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SÁNDWICHES -->
+            <section id="sandwiches">
+                <h2>Sándwiches</h2>
+                <div class="menu-grid">
+                    <div class="producto">
+                        <img src="../img/productos/pan_pollo.jpg" alt="" />
+                        <h3>Pollo</h3>
+                        <p>Pan + pollo + lechuga</p>
+                        <p class="precio">S/ 10.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/pan_verduras.jpg" alt="" />
+                        <h3>Vegetariano</h3>
+                        <p>Pan integral + verduras</p>
+                        <p class="precio">S/ 9.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/pan_jamon.jpg" alt="" />
+                        <h3>Jamón y queso</h3>
+                        <p>Clásico y sabroso</p>
+                        <p class="precio">S/ 8.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/atun.jpg" alt="" />
+                        <h3>Atún</h3>
+                        <p>Pan + atún + tomate</p>
+                        <p class="precio">S/ 9.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/huevo.jpg" alt="" />
+                        <h3>Huevo</h3>
+                        <p>Pan + huevo cocido</p>
+                        <p class="precio">S/ 7.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/milanesa.jpg" alt="" />
+                        <h3>Milanesa</h3>
+                        <p>Pan + milanesa de pollo</p>
+                        <p class="precio">S/ 11.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/tocino.jpg" alt="" />
+                        <h3>Tocino</h3>
+                        <p>Pan + tocino + huevo</p>
+                        <p class="precio">S/ 10.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/pan_pavo.jpg" alt="" />
+                        <h3>Pavo</h3>
+                        <p>Pan + pavo + queso</p>
+                        <p class="precio">S/ 9.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/caprese.jpg" alt="" />
+                        <h3>Caprese</h3>
+                        <p>Tomate + mozzarella + albahaca</p>
+                        <p class="precio">S/ 10.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/chorizo.jpg" alt="" />
+                        <h3>Chorizo</h3>
+                        <p>Pan + chorizo + cebolla</p>
+                        <p class="precio">S/ 10.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BEBIDAS -->
+            <section id="bebidas">
+                <h2>Bebidas</h2>
+                <div class="menu-grid">
+                    <div class="producto">
+                        <img src="../img/productos/limonada.png" />
+                        <h3>Limonada</h3>
+                        <p>Refrescante</p>
+                        <p class="precio">S/ 3.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/gaseosa.png" />
+                        <h3>Gaseosa</h3>
+                        <p>Botella 500ml</p>
+                        <p class="precio">S/ 4.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/te_helado.png" />
+                        <h3>Té helado</h3>
+                        <p>Con limón</p>
+                        <p class="precio">S/ 3.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/naranjita.png" />
+                        <h3>Jugo de naranja</h3>
+                        <p>Natural</p>
+                        <p class="precio">S/ 3.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/papaya.png" />
+                        <h3>Jugo de papaya</h3>
+                        <p>Refrescante</p>
+                        <p class="precio">S/ 3.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/aguaa.png" />
+                        <h3>Agua</h3>
+                        <p>Sin gas</p>
+                        <p class="precio">S/ 2.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/agua_gas.png" />
+                        <h3>Agua con gas</h3>
+                        <p>Botella</p>
+                        <p class="precio">S/ 2.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/morada.png" />
+                        <h3>Chicha morada</h3>
+                        <p>Tradicional</p>
+                        <p class="precio">S/ 3.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/smooty.png" />
+                        <h3>Smoothie de fresa</h3>
+                        <p>Con yogurt</p>
+                        <p class="precio">S/ 4.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/cafecito.png" />
+                        <h3>Café</h3>
+                        <p>Caliente o helado</p>
+                        <p class="precio">S/ 3.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- POSTRES -->
+            <section id="postres">
+                <h2>Postres</h2>
+                <div class="menu-grid">
+                    <div class="producto">
+                        <img src="../img/productos/brownie.png" />
+                        <h3>Brownie</h3>
+                        <p>Chocolate intenso</p>
+                        <p class="precio">S/ 5.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/gelatina.png" />
+                        <h3>Gelatina</h3>
+                        <p>Fresa o piña</p>
+                        <p class="precio">S/ 2.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/cheescake.png" />
+                        <h3>Cheesecake</h3>
+                        <p>Con mermelada</p>
+                        <p class="precio">S/ 6.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/muffin.png" />
+                        <h3>Muffin</h3>
+                        <p>Chocolate o vainilla</p>
+                        <p class="precio">S/ 4.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/tarta.png" />
+                        <h3>Tarta de frutas</h3>
+                        <p>Fresas y kiwi</p>
+                        <p class="precio">S/ 5.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/mazamorra.png" />
+                        <h3>Mazamorra morada</h3>
+                        <p>Tradicional</p>
+                        <p class="precio">S/ 3.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/arrozleche.png" />
+                        <h3>Arroz con leche</h3>
+                        <p>Con canela</p>
+                        <p class="precio">S/ 3.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/helados.png" />
+                        <h3>Helado</h3>
+                        <p>Vainilla o chocolate</p>
+                        <p class="precio">S/ 4.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/pastel_limon.png" />
+                        <h3>Pastel de limón</h3>
+                        <p>Suave y cítrico</p>
+                        <p class="precio">S/ 5.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/pionono.png" />
+                        <h3>Pionono</h3>
+                        <p>Relleno de manjar</p>
+                        <p class="precio">S/ 4.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SNACKS -->
+            <section id="snacks">
+                <h2>Snacks</h2>
+                <div class="menu-grid">
+                    <div class="producto">
+                        <img src="../img/productos/papitas.png" />
+                        <h3>Papas fritas</h3>
+                        <p>Clásicas</p>
+                        <p class="precio">S/ 3.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/pringles.png" />
+                        <h3>Pringles</h3>
+                        <p>Original o BBQ</p>
+                        <p class="precio">S/ 4.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/cchifles.png" />
+                        <h3>Chifles</h3>
+                        <p>Plátano crocante</p>
+                        <p class="precio">S/ 3.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/galletas_cyv.png" />
+                        <h3>Galletas</h3>
+                        <p>Chocolate o vainilla</p>
+                        <p class="precio">S/ 2.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/barra.png" />
+                        <h3>Barra de cereal</h3>
+                        <p>Con miel</p>
+                        <p class="precio">S/ 3.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/mani.png" />
+                        <h3>Maní</h3>
+                        <p>Salado</p>
+                        <p class="precio">S/ 2.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/choco.png" />
+                        <h3>Chocolate</h3>
+                        <p>Tableta pequeña</p>
+                        <p class="precio">S/ 3.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/quesillos.png" />
+                        <h3>Quesitos</h3>
+                        <p>Snack horneado</p>
+                        <p class="precio">S/ 2.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/biscocho.png" />
+                        <h3>Bizcocho</h3>
+                        <p>Suave y dulce</p>
+                        <p class="precio">S/ 3.50</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="../img/productos/rollitos.png" />
+                        <h3>Rollitos</h3>
+                        <p>Rellenos de queso</p>
+                        <p class="precio">S/ 4.00</p>
+                        <button type="button" class="btn-agregar">Agregar</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <!-- Pie de página -->
+        <footer>
+            <footer style="background-color: #000; color: #fff; padding: 40px 20px; font-size: 14px;">
+                <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+
+                    <!-- Campus UTP -->
+                    <div style="flex: 1; min-width: 200px;">
+                        <h4 style="color: #fff;">Campus UTP</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>Arequipa</li>
+                            <li>Chiclayo</li>
+                            <li>Chimbote</li>
+                            <li>Huancayo</li>
+                            <li>Ica</li>
+                            <li>Iquitos</li>
+                            <li>Lima Centro</li>
+                            <li>Lima Este - SJL</li>
+                            <li>Lima Norte</li>
+                            <li>Lima Sur</li>
+                            <li>Piura</li>
+                            <li>Pucallpa</li>
+                            <li>Tacna</li>
+                            <li>Trujillo</li>
+                        </ul>
+                    </div>
+
+                    <!-- Postulantes -->
+                    <div style="flex: 1; min-width: 200px;">
+                        <h4 style="color: #fff;">Postulantes</h4>
+                        <p>Lima: (01) 315 9610<br>Provincias: 0801 19160</p>
+                        <p>    <p>
+                            <a href="https://wa.me/51999888777" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">
+                                <i class="fa-brands fa-whatsapp"></i> Contáctanos por WhatsApp
+                            </a>
+                        </p></p>
+                        <p>Email: <a href="mailto:admision@utp.edu.pe" style="color: #fff;">admision@utp.edu.pe</a></p>
+                        <p>Horario: Lun - Sáb: 8:30 a.m. a 8:00 p.m.</p>
+                    </div>
+
+                    <!-- Alumnos SAE -->
+                    <div style="flex: 1; min-width: 200px;">
+                        <h4 style="color: #fff;">Alumnos (SAE)</h4>
+                        <p>Lima: (01) 315 9610<br>Provincias: 0801 19160</p>
+                        <p>
+                            <a href="https://wa.me/51999888777" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">
+                                <i class="fa-brands fa-whatsapp"></i> Contáctanos por WhatsApp
+                            </a>
+                        </p></p>
+                        <p>Email: <a href="mailto:sae@utp.edu.pe" style="color: #fff;">sae@utp.edu.pe</a></p>
+                        <p>Horario:<br>Lun - Vie: 8:30 a.m. a 8:00 p.m.<br>Sáb - Dom: 7:00 a.m. a 8:00 p.m.</p>
+                    </div>
+
+                    <!-- Enlaces útiles -->
+                    <div style="flex: 1; min-width: 200px;">
+                        <h4 style="color: #fff;">Enlaces útiles</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li><a href="#" style="color: #fff;">Resultados de Admisión 2025 - Ciclo Agosto</a></li>
+                            <li><a href="#" style="color: #fff;">Trabaja en UTP</a></li>
+                            <li><a href="#" style="color: #fff;">Libro de Reclamaciones</a></li>
+                            <li><a href="#" style="color: #fff;">Políticas de Privacidad</a></li>
+                            <li><a href="#" style="color: #fff;">Términos y condiciones</a></li>
+                            <li><a href="#" style="color: #fff;">Mapa del sitio</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Línea final -->
+                <div style="text-align: center; margin-top: 40px;">
+                    <p>&copy; 2025 Universidad Tecnológica del Perú – Campus Ate-Grupo3-TallerWeb</p>
+                    <p>UTP S.A.C. RUC: 20492625026</p>
+                </div>
+            </footer>
+
+            <script src="../js/JSpruebas.js"></script>
+
+               <!-- Botón hamburguesa (solo móvil) --> 
+            <nav id="menu-lateral" class="menu-lateral" aria-hidden="true">
+                <button class="cerrar-menu" aria-label="Cerrar menú">✕</button>
+                <ul>
+                    <li><a href="#especiales">Especiales</a></li>
+                    <li><a href="#desayunos">Desayunos</a></li>
+                    <li><a href="#sandwiches">Sandwiches</a></li>
+                    <li><a href="#bebidas">Bebidas</a></li>
+                    <li><a href="#postres">Postres</a></li>
+                    <li><a href="#snacks">Snacks</a></li>
+                </ul>
+            </nav>
+            <div id="overlay-menu" class="overlay-menu"></div>
+
+    </body>
+
+</html>
